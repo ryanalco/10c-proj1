@@ -48,6 +48,9 @@ class Player{
 public:
     Player();
     Player(int m);
+    int get_money() const;
+    void increase_money(int bet);
+    void decrease_money(int bet);
 private:
     int money;
 };

@@ -36,3 +36,175 @@ Card::Card(){
         default: break;
     }
 }
+
+string Card::get_spanish_suit() const {
+    string suitName;
+    switch (suit) {
+        case OROS:
+            suitName = "oros";
+            break;
+        case COPAS:
+            suitName = "copas";
+            break;
+        case ESPADAS:
+            suitName = "espadas";
+            break;
+        case BASTOS:
+            suitName = "bastos";
+            break;
+        default: break;
+    }
+    return suitName;
+}
+
+
+string Card::get_spanish_rank() const {
+    string rankName;
+    switch (rank) {
+        case AS:
+            rankName = "As";
+            break;
+        case DOS:
+            rankName = "Dos";
+            break;
+        case TRES:
+            rankName = "Tres";
+            break;
+        case CUATRO:
+            rankName = "Cuatro";
+            break;
+        case CINCO:
+            rankName = "Cinco";
+            break;
+        case SEIS:
+            rankName = "Seis";
+            break;
+        case SIETE:
+            rankName = "Siete";
+            break;
+        case SOTA:
+            rankName = "Sota";
+            break;
+        case CABALLO:
+            rankName = "Caballo";
+            break; 
+        case REY: 
+            rankName = "Rey"; 
+            break; 
+        default: break;
+    }
+    return rankName;
+}
+
+
+string Card::get_english_suit() const {
+    string suitname;
+    switch (suit) {
+        case OROS:
+            suitname = "coins";
+            break;
+        case COPAS:
+            suitname = "cups";
+            break;
+        case ESPADAS:
+            suitname = "spades";
+            break;
+        case BASTOS:
+            suitname = "clubs";
+            break;
+        default: break;
+    }
+    return suitname;
+}
+
+
+string Card::get_english_rank() const {
+    string rankname;
+    switch (rank) {
+        case AS:
+            rankname = "One";
+            break;
+        case DOS:
+            rankname = "Two";
+            break;
+        case TRES:
+            rankname = "Three";
+            break;
+        case CUATRO:
+            rankname = "Four";
+            break;
+        case CINCO:
+            rankname = "Five";
+            break;
+        case SEIS:
+            rankname = "Six";
+            break;
+        case SIETE:
+            rankname = "Seven";
+            break;
+        case SOTA:
+            rankname = "Jack";
+            break;
+        case CABALLO:
+            rankname = "Queen";
+            break;
+        case REY:
+            rankname = "King";
+            break;
+        default: break;
+    }
+
+    return rankname;
+}
+
+
+int Card::get_rank() const {
+    return static_cast<int>(rank) + 1 ;
+}
+
+bool Card::operator < (Card card2) const {
+    return rank < card2.rank;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Player::Player(int in_money) {
+    money = in_money;
+}
+
+int Player::get_money() const {
+    return money;
+}
+
+void Player::increase_money(int bet){
+    money += bet;
+}
+
+void Player::decrease_money(int bet){
+    money -= bet;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
