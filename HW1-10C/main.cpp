@@ -1,15 +1,8 @@
-//
-//  main.cpp
-//  HW1-10C
-//
-//  Created by Ryan Alvarez-Cohen on 10/3/17.
-//  Copyright © 2017 Ryan Alvarez-Cohen. All rights reserved.
-//
 
 #include <iostream>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    
     return 0;
 }
