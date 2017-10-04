@@ -184,9 +184,20 @@ void Player::decrease_money(int bet){
     money -= bet;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Hand::Hand() {
+}
 
+void Hand:: add_card(Card card1) {
+    cards.push_back(card1);
+}
 
+string Hand:: show_hand() {
+    for (int i = 0; i < cards.size(); i++) {
+        cout << cards[i].get_spanish_rank() << " of " << cards[i].get_spanish_suit();
+    }
+}
 
 
 

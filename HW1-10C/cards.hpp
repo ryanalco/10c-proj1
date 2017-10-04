@@ -40,7 +40,10 @@ private:
 class Hand {
 public:
     Hand();
+    void add_card(Card card);
+    string show_hand();
 private:
+    vector<Card> cards;
     
 };
 
