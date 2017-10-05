@@ -1,17 +1,21 @@
 #include "cards.hpp"
 #include <iostream>
+#include <string>
+#include <ctime>
 using namespace std;
 
 int main() {
     
+    srand((int)time(0));
     
     Player me(100);
     
     while (me.get_money() > 0) {
         string response;
         double bet;
-        cout << "You have $" << me.get_money() << ". Enter Bet: \n";
+        cout << "You have $" << me.get_money() << ". Enter Bet: ";
         cin >> bet;
+    
         
         Hand player;
         Hand dealer;
@@ -21,7 +25,7 @@ int main() {
         
         while ((response != "n") && (player.get_total() <= 7.5)) {
             cout << "Your cards: \n" << player.show_hand() << endl;
-            cout << "Your total is " << player.get_total() << "Do you want another card (y/n)?";
+            cout << "Your total is " << player.get_total() << ". Do you want another card (y/n)? ";
             cin >> response;
             if (response == "y") {
                 Card pcard2;
@@ -42,7 +46,7 @@ int main() {
             me.increase_money(bet);
         }
         else if ((dealer.get_total() > player.get_total()) || (player.get_total() > 7.5)) {
-            cout << "Too bad. You lose " << bet;
+            cout << "Too bad. You lose " << bet << "." << endl;
             me.decrease_money(bet);
         }
     }

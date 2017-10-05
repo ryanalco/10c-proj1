@@ -159,7 +159,12 @@ string Card::get_english_rank() const {
 
 
 int Card::get_rank() const {
-    return static_cast<int>(rank) + 1 ;
+    if (((static_cast<int>(rank) + 1) == 8) || ((static_cast<int>(rank) + 1) == 9) || ((static_cast<int>(rank) + 1) == 10)) {
+        return .5;
+    }
+    else {
+        return static_cast<int>(rank) + 1 ;
+    }
 }
 
 bool Card::operator < (Card card2) const {
@@ -196,13 +201,13 @@ void Hand:: add_card(Card card1) {
 string Hand:: show_hand() {
     string me = "";
     for (int i = 0; i < cards.size(); i++) {
-        cout << cards[i].get_spanish_rank() << " of " << cards[i].get_spanish_suit();
+        cout << cards[i].get_spanish_rank() << " of " << cards[i].get_spanish_suit() << " ";
     }
     return me;
 }
 
 int Hand:: get_total() {
-    int total;
+    int total = 0;
     for (int i = 0; i < cards.size(); i++) {
         total += cards[i].get_rank();
     }
