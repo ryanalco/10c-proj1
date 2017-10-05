@@ -42,6 +42,7 @@ public:
     Hand();
     void add_card(Card card);
     string show_hand();
+    int get_total(); 
 private:
     vector<Card> cards;
     

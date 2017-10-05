@@ -194,11 +194,20 @@ void Hand:: add_card(Card card1) {
 }
 
 string Hand:: show_hand() {
+    string me = "";
     for (int i = 0; i < cards.size(); i++) {
         cout << cards[i].get_spanish_rank() << " of " << cards[i].get_spanish_suit();
     }
+    return me;
 }
 
+int Hand:: get_total() {
+    int total;
+    for (int i = 0; i < cards.size(); i++) {
+        total += cards[i].get_rank();
+    }
+    return total;
+}
 
 
 
