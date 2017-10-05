@@ -16,11 +16,10 @@ int main() {
         Hand player;
         Hand dealer;
         
-        
         Card pcard;
         player.add_card(pcard);
         
-        while (response != "n") {
+        while ((response != "n") && (player.get_total() <= 7.5)) {
             cout << "Your cards: \n" << player.show_hand() << endl;
             cout << "Your total is " << player.get_total() << "Do you want another card (y/n)?";
             cin >> response;
@@ -29,14 +28,30 @@ int main() {
                 player.add_card(pcard2);
                 cout << "New Card: " << pcard.get_spanish_suit() << endl;
             }
+        }
     
-        //if (response == "n") {
         while (dealer.get_total() <= 5.5) {
             Card dcard;
             dealer.add_card(dcard);
             cout << "Dealer's cards: " << dealer.show_hand() << endl;
             cout << "The dealer's total is: " << dealer.get_total() << endl;
         }
-        
+            
+        if ((dealer.get_total() > 7.5) || (player.get_total() > dealer.get_total())) {
+            cout << "You win " << bet << endl;
+            me.increase_money(bet);
+        }
+        else if ((dealer.get_total() > player.get_total()) || (player.get_total() > 7.5)) {
+            cout << "Too bad. You lose " << bet;
+            me.decrease_money(bet);
+        }
+    }
+    
     return 0;
 }
+        
+        
+        
+        
+        
+        
