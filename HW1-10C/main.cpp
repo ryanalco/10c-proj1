@@ -16,7 +16,6 @@ int main() {
         cout << "You have $" << me.get_money() << ". Enter Bet: ";
         cin >> bet;
     
-        
         Hand player;
         Hand dealer;
         
@@ -30,24 +29,41 @@ int main() {
             if (response == "y") {
                 Card pcard2;
                 player.add_card(pcard2);
-                cout << "New Card: " << pcard.get_spanish_suit() << endl;
+                cout << "New Card: " << player.show_last() << endl;
             }
         }
-    
+        
+        
+        Card dcard;
+        dealer.add_card(dcard);
+        cout << "Dealer's cards: " << dealer.show_hand() << endl;
+        cout << "The dealer's total is: " << dealer.get_total() << endl;
+        //cout << dealer.get_total();
         while (dealer.get_total() <= 5.5) {
-            Card dcard;
-            dealer.add_card(dcard);
+            Card dcard2;
+            dealer.add_card(dcard2);
+            cout << "New Card: " << dealer.show_last() << endl;
             cout << "Dealer's cards: " << dealer.show_hand() << endl;
             cout << "The dealer's total is: " << dealer.get_total() << endl;
         }
             
-        if ((dealer.get_total() > 7.5) || (player.get_total() > dealer.get_total())) {
+        if (player.get_total() > 7.5) {
+            cout << "Too bad. You lose " << bet << "." << endl;
+        }
+        else if (dealer.get_total() > 7.5) {
             cout << "You win " << bet << endl;
             me.increase_money(bet);
         }
-        else if ((dealer.get_total() > player.get_total()) || (player.get_total() > 7.5)) {
+        else if (player.get_total() > dealer.get_total()) {
+            cout << "You win " << bet << endl;
+            me.increase_money(bet);
+        }
+        else if (dealer.get_total() > player.get_total()) {
             cout << "Too bad. You lose " << bet << "." << endl;
             me.decrease_money(bet);
+        }
+        else {
+            cout << "error";
         }
     }
     

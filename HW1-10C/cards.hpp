@@ -28,7 +28,7 @@ public:
     string get_spanish_rank() const;
     string get_english_suit() const;
     string get_english_rank() const;
-    int get_rank() const;
+    double get_rank() const;
     bool operator < (Card card2) const;
     
 private:
@@ -42,7 +42,8 @@ public:
     Hand();
     void add_card(Card card);
     string show_hand();
-    int get_total(); 
+    string show_last();
+    double get_total();
 private:
     vector<Card> cards;
     
