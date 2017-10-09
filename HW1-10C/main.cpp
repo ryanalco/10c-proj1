@@ -67,7 +67,7 @@ int main() {
             me.decrease_money(bet);
         }
         else {
-            cout << "error";
+            cout << "error"; 
         }
     }
     
