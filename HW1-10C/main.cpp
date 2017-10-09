@@ -36,19 +36,23 @@ int main() {
         
         Card dcard;
         dealer.add_card(dcard);
-        cout << "Dealer's cards: " << dealer.show_hand() << endl;
+        cout << "Dealer's cards: \n" << dealer.show_hand() << endl;
         cout << "The dealer's total is: " << dealer.get_total() << endl;
-        //cout << dealer.get_total();
+    
         while (dealer.get_total() <= 5.5) {
             Card dcard2;
             dealer.add_card(dcard2);
             cout << "New Card: " << dealer.show_last() << endl;
-            cout << "Dealer's cards: " << dealer.show_hand() << endl;
+            cout << "Dealer's cards: \n" << dealer.show_hand() << endl;
             cout << "The dealer's total is: " << dealer.get_total() << endl;
         }
             
+        if (((player.get_total() > 7.5) && (dealer.get_total() > 7.5)) || (player.get_total() == dealer.get_total())){
+            cout << "Nobody wins! " << endl;
+        }
         if (player.get_total() > 7.5) {
             cout << "Too bad. You lose " << bet << "." << endl;
+            me.decrease_money(bet);
         }
         else if (dealer.get_total() > 7.5) {
             cout << "You win " << bet << endl;

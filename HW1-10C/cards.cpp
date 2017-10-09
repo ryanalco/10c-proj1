@@ -159,7 +159,7 @@ string Card::get_english_rank() const {
 
 
 double Card::get_rank() const {
-    if (((static_cast<int>(rank) + 1) == 8) || ((static_cast<int>(rank) + 1) == 9) || ((static_cast<int>(rank) + 1) == 10)) {
+    if (((static_cast<int>(rank) + 1) == 10) || ((static_cast<int>(rank) + 1) == 11) || ((static_cast<int>(rank) + 1) == 12)) {
         return .5;
     }
     else {
@@ -201,14 +201,14 @@ void Hand:: add_card(Card card1) {
 string Hand:: show_hand() {
     string me = "";
     for (int i = 0; i < cards.size(); i++) {
-        cout << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << ", ";
+        cout << cards[i].get_spanish_rank() << " de " << cards[i].get_spanish_suit() << "     (" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")  \n";
     }
     return me;
 }
 
 string Hand:: show_last() {
     string show = "";
-    cout << cards[cards.size() - 1].get_spanish_rank() << " de " << cards[cards.size() - 1].get_spanish_suit() << " ";
+    cout << cards[cards.size() - 1].get_spanish_rank() << " de " << cards[cards.size() - 1].get_spanish_suit() << "     (" << cards[cards.size() - 1].get_english_rank() << " of " << cards[cards.size() - 1].get_english_suit() << ") \n";
     return show;
 }
 
