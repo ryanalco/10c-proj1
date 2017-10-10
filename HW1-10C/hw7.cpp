@@ -50,7 +50,7 @@ int main() {
         if (((player.get_total() > 7.5) && (dealer.get_total() > 7.5)) || (player.get_total() == dealer.get_total())){
             cout << "Nobody wins! " << endl;
         }
-        if (player.get_total() > 7.5) {
+        else if (player.get_total() > 7.5) {
             cout << "Too bad. You lose " << bet << "." << endl;
             me.decrease_money(bet);
         }
@@ -67,9 +67,11 @@ int main() {
             me.decrease_money(bet);
         }
         else {
-            cout << "error"; 
+            cout << "error";
         }
     }
+    
+    cout << "You have $0. GAME OVER!\nCome back when you have more money.\n\nBye! \n";
     
     return 0;
 }
