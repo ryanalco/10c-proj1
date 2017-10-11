@@ -18,7 +18,11 @@ int main() {
         cout << "You have $" << me.get_money() << ". Enter Bet: ";
         cin >> bet;
         
-        //what happens if the player bets more money than they have to bet?
+        //if the player bets more money than they have to bet, they are asked to try again
+        if (bet > me.get_money()) {
+            cout << "You do not have that much money to bet. Enter bet again: ";
+            cin >> bet;
+        }
     
         //create the hands for player and dealer. No cards given yet
         Hand player;
