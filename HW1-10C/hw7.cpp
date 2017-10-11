@@ -17,6 +17,11 @@ int main() {
         double bet;
         cout << "You have $" << me.get_money() << ". Enter Bet: ";
         cin >> bet;
+        
+        if (bet > me.get_money()) {
+            cout << "You do not have that much money to bet. Enter bet again: ";
+            cin >> bet;
+        }
     
         //create the hands for player and dealer. No cards given yet
         Hand player;
