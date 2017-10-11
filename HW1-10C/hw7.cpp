@@ -6,22 +6,27 @@ using namespace std;
 
 int main() {
     
+    //initialize the random number generator
     srand((int)time(0));
     
     Player me(100);
     
+    //the game continues until player is out of money
     while (me.get_money() > 0) {
         string response;
         double bet;
         cout << "You have $" << me.get_money() << ". Enter Bet: ";
         cin >> bet;
     
+        //create the hands for player and dealer. No cards given yet
         Hand player;
         Hand dealer;
         
+        //give first card to players hand
         Card pcard;
         player.add_card(pcard);
         
+        //continue giving player cards until their response is no or their total is too high
         while ((response != "n") && (player.get_total() <= 7.5)) {
             cout << "Your cards: \n" << player.show_hand() << endl;
             cout << "Your total is " << player.get_total() << ". Do you want another card (y/n)? ";
@@ -33,12 +38,13 @@ int main() {
             }
         }
         
-        
+        //give dealer his first card
         Card dcard;
         dealer.add_card(dcard);
         cout << "Dealer's cards: \n" << dealer.show_hand() << endl;
         cout << "The dealer's total is: " << dealer.get_total() << endl;
     
+        //continue giving dealer cards while their total is less than 5.5
         while (dealer.get_total() <= 5.5) {
             Card dcard2;
             dealer.add_card(dcard2);
@@ -46,7 +52,9 @@ int main() {
             cout << "Dealer's cards: \n" << dealer.show_hand() << endl;
             cout << "The dealer's total is: " << dealer.get_total() << endl;
         }
-            
+        
+        //Determine if player gains or loses bet based on each possible test case
+        
         if (((player.get_total() > 7.5) && (dealer.get_total() > 7.5)) || (player.get_total() == dealer.get_total())){
             cout << "Nobody wins! " << endl;
         }
@@ -71,6 +79,7 @@ int main() {
         }
     }
     
+    // game ends when player is out of money
     cout << "You have $0. GAME OVER!\nCome back when you have more money.\n\nBye! \n";
     
     return 0;
